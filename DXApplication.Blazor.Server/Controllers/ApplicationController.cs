@@ -1,12 +1,18 @@
 ﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Model;
+using DevExpress.ExpressApp.SystemModule;
 using DXApplication.Module.Extension;
+using Microsoft.AspNetCore.Builder;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DXApplication.Blazor.Server.Controllers;
 
-public class ApplicationController {
-    public static void ListViewCreating(object s, ListViewCreatingEventArgs e) {
-        if (((XafApplication)s).FindModelView(e.ViewID) is IModelListView model) {
+public class ApplicationController
+{
+    public static void ListViewCreating(object s, ListViewCreatingEventArgs e)
+    {
+        if (((XafApplication)s).FindModelView(e.ViewID) is IModelListView model)
+        {
             var type = e.CollectionSource.ObjectTypeInfo.Type;
             //TODO: cho phép edit inline với root list view
             if (type.IsAssignableTo(typeof(IListViewInline)) && e.IsRoot)

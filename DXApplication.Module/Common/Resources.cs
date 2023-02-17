@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DXApplication.Blazor.Common;
 
-class Menu {
+class Menu
+{
     public const string MenuCatalog = "Danh mục";
+    public const string MenuDeXuat = "Đề xuất";
+    public const string MenuDeTai = "Đề tài";
 }
 

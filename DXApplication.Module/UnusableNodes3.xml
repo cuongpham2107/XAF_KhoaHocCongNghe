@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="DeTaiDuAn_KHCN_DetailView">
+      <Layout Id="Layout">
+        <TabbedGroup Id="Tabs">
+          <LayoutGroup Id="Main">
+            <LayoutGroup Id="Detail">
+              <LayoutGroup Id="Detail_col1">
+                <LayoutItem Id="KinhPhiThucTe" RelativeSize="71.33655394524959" />
+              </LayoutGroup>
+              <LayoutGroup Id="Detail_col2">
+                <LayoutItem Id="HoiDongThamDinh" RelativeSize="3.864734299516908" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

@@ -6,10 +6,17 @@
       <Action Id="Refresh" PaintStyle="Image" />
     </Actions>
   </ActionDesign>
+  <BOModel>
+    <Class Name="DXApplication.Module.BusinessObjects.Main.KinhPhiThucHien">
+      <AppearanceRules>
+        <AppearanceRule Id="HideEdit" BackColor="" />
+      </AppearanceRules>
+    </Class>
+  </BOModel>
   <NavigationItems NavigationStyle="Accordion" StartupNavigationItem="My Dashboard">
     <Items>
       <DashboardNavigationItem Id="My Dashboard" Caption="Trang chủ" DashboardTitle="My Dashboard" Index="0" IsNewNode="True" />
-      <Item Id="Default">
+      <Item Id="Default" ImageName="">
         <Items>
           <Item Id="Settings" ImageName="ScatterChartLabelOptions" ViewId="ModelDifference_ListView" Caption="Settings" IsNewNode="True" />
         </Items>

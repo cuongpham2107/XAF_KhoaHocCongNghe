@@ -12,6 +12,7 @@
     <Compile Remove="Controllers\DetailViewController.cs" />
     <Compile Remove="Controllers\ListViewController.cs" />
     <Compile Remove="Controllers\ModelNodeController.cs" />
+    <Compile Remove="Controllers\ShowNavigationItemController1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Model.log" />

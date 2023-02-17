@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DXApplication.Module", "DXA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DXApplication.Blazor.Server", "DXApplication.Blazor.Server\DXApplication.Blazor.Server.csproj", "{5A3B70D9-AADD-46A5-80BA-3B1CCF20DC17}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DXApplication.WebApi", "DXApplication.WebApi\DXApplication.WebApi.csproj", "{6A51FF4D-12B5-4FD0-91EE-7767273525C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,12 @@ Global
 		{5A3B70D9-AADD-46A5-80BA-3B1CCF20DC17}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
 		{5A3B70D9-AADD-46A5-80BA-3B1CCF20DC17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A3B70D9-AADD-46A5-80BA-3B1CCF20DC17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A51FF4D-12B5-4FD0-91EE-7767273525C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A51FF4D-12B5-4FD0-91EE-7767273525C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A51FF4D-12B5-4FD0-91EE-7767273525C3}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{6A51FF4D-12B5-4FD0-91EE-7767273525C3}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{6A51FF4D-12B5-4FD0-91EE-7767273525C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A51FF4D-12B5-4FD0-91EE-7767273525C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -68,7 +68,9 @@ app {
     box-shadow: 6px 8px 10px 0 rgb(0 0 0 / 30%);    
 }
 
-
+label.dxbl-fl-cpt.dxbl-text {
+    font-weight: 600;
+}
 .loader {
     margin: 10px auto;
     color: gray;
@@ -80,7 +82,10 @@ app {
     background-repeat: no-repeat;
     animation: m 3s infinite;
 }
-
+.dxbl-text-edit.dxbl-readonly input, 
+.dxbl-text-edit.dxbl-readonly textarea {
+    background-color: #0000001f !important;
+}
 @keyframes m {
     0% {
         background-position: calc(0*100%/3) 100%, calc(1*100%/3) 100%, calc(2*100%/3) 100%, calc(3*100%/3) 100%
@@ -121,4 +126,7 @@ app {
 
 .dxbl-grid-table td {
     white-space: nowrap;
+}
+.dxbl-text-edit {
+    --dxbl-text-edit-padding-y: 0.400031rem !important;
 }

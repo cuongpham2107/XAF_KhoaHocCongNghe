@@ -6,10 +6,13 @@ using DevExpress.ExpressApp.Templates.ActionControls;
 using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DXApplication.Blazor.Server.Templates;
-public class MyLogonWindowTemplate : WindowTemplateBase {
-    public MyLogonWindowTemplate() {
+public class MyLogonWindowTemplate : WindowTemplateBase
+{
+    public MyLogonWindowTemplate()
+    {
         Toolbar = new DxToolbarAdapter(new DxToolbarModel() { AdaptivityAutoHideRootItems = false, AdaptivityAutoCollapseItemsToIcons = false });
         Toolbar.AddActionContainer(DialogController.DialogActionContainerName);
 
@@ -24,4 +27,6 @@ public class MyLogonWindowTemplate : WindowTemplateBase {
     public DxToolbarAdapter Toolbar { get; }
     public DxToolbarAdapter AdditionalToolbar { get; }
     public string HeaderCaption { get; set; }
+
+
 }

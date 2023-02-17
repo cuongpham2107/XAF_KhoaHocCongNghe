@@ -4,16 +4,20 @@ using DevExpress.ExpressApp.Blazor.Templates;
 using DevExpress.ExpressApp.Blazor.Templates.Navigation.ActionControls;
 using DevExpress.ExpressApp.Blazor.Templates.Security.ActionControls;
 using DevExpress.ExpressApp.Blazor.Templates.Toolbar.ActionControls;
+using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Templates;
 using DevExpress.ExpressApp.Templates.ActionControls;
 using DevExpress.Persistent.Base;
 using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DXApplication.Blazor.Server.Templates;
 
-public class MypeApplicationWindowTemplate : WindowTemplateBase, ISupportActionsToolbarVisibility, ISelectionDependencyToolbar {
-    public MypeApplicationWindowTemplate() {
+public class MypeApplicationWindowTemplate : WindowTemplateBase, ISupportActionsToolbarVisibility, ISelectionDependencyToolbar
+{
+    public MypeApplicationWindowTemplate()
+    {
         NavigateBackActionControl = new NavigateBackActionControl();
         AddActionControl(NavigateBackActionControl);
         AccountComponent = new AccountComponentAdapter();
@@ -50,11 +54,13 @@ public class MypeApplicationWindowTemplate : WindowTemplateBase, ISupportActions
     }
     protected override IEnumerable<IActionControlContainer> GetActionControlContainers() => Toolbar.ActionContainers;
     protected override RenderFragment CreateComponent() => MypeApplicationWindowTemplateComponent.Create(this);
-    protected override void BeginUpdate() {
+    protected override void BeginUpdate()
+    {
         base.BeginUpdate();
         ((ISupportUpdate)Toolbar).BeginUpdate();
     }
-    protected override void EndUpdate() {
+    protected override void EndUpdate()
+    {
         ((ISupportUpdate)Toolbar).EndUpdate();
         base.EndUpdate();
     }

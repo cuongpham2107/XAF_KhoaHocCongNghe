@@ -1,8 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="DXApplication">
+  <ActionDesign>
+    <Actions>
+      <Action Id="Btn_DinhKemTaiLieu" TargetObjectsCriteria="" />
+      <Action Id="Btn_FilterDeTai_KHCN" ImageName="Zoom" />
+      <Action Id="Btn_NghiemVuKetThuc" TargetObjectsCriteria="[TrangThaiBool] = True And [TrangThaiDeTai] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,duyet#" />
+      <Action Id="Btn_TuyenChon" TargetObjectsCriteria="[DanhGia] = ##Enum#DXApplication.Blazor.Common.Enums+DanhGia,dat# And [DeTaiDuAn_KHCN] Is Null" />
+    </Actions>
+  </ActionDesign>
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+    <Class Name="DXApplication.Module.BusinessObjects.Main.DeXuatNhiemVu_KHCN">
+      <OwnMembers>
+        <Member Name="KetQuaDuKien" RowCount="10" />
+        <Member Name="MucTieu" RowCount="10" />
+        <Member Name="NoiDungChinh" RowCount="10" />
+        <Member Name="TenSanPham" RowCount="5" />
+        <Member Name="TinhCapThiet_DT" RowCount="10" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DXApplication.Module.BusinessObjects.Main.HoiDongThamDinh" DefaultLookupEditorMode="AllItemsWithSearch" />
   </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Đề xuất" ImageName="" QuickAccessItem="True" Index="1" />
+      <Item Id="Đề tài" ImageName="" QuickAccessItem="True" Index="2" />
+      <Item Id="Danh mục" ImageName="" QuickAccessItem="True" Index="3">
+        <Items>
+          <Item Id="ChuNhiem_CanBoQuanLy_ListView" Index="0" />
+          <Item Id="HoiDongThamDinh_ListView" Index="1" />
+          <Item Id="ThanhVienHoiDongTD_ListView" Index="2" />
+          <Item Id="NhaKhoaHoc_ListView" Index="3" />
+          <Item Id="Noidung_DeTai_ListView" Index="4" />
+          <Item Id="KinhPhiThucHien_ListView" Index="5" />
+          <Item Id="ThaoLuan_ListView" Index="6" />
+        </Items>
+      </Item>
+      <Item Id="Reports" ImageName="" />
+      <Item Id="State Machine" ImageName="" />
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
@@ -12,6 +49,260 @@
   </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
-    <ListView Id="Personnel_ListView" NewItemRowPosition="Bottom" />
+    <DetailView Id="ChuNhiem_CanBoQuanLy_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="Detail" RelativeSize="100" Caption="Chi tiết">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.9437570303712">
+              <LayoutItem Id="HoTen" RelativeSize="5.190839694656488" />
+              <LayoutItem Id="SoDienThoai" RelativeSize="3.66412213740458" />
+              <LayoutItem Id="Email" RelativeSize="3.66412213740458" />
+              <LayoutItem Id="DiaChi" RelativeSize="87.48091603053435" />
+              <LayoutItem Id="NoiCongTac" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.0562429696288">
+              <LayoutItem Id="NoiCongTac" ViewItem="NoiCongTac" Index="0" RelativeSize="5.190839694656488" IsNewNode="True" />
+              <LayoutItem Id="LinhVucChuyenMon" Index="1" RelativeSize="3.66412213740458" />
+              <LayoutItem Id="HocVi" Index="2" RelativeSize="3.66412213740458" />
+              <LayoutItem Id="PhanLoai" Index="3" RelativeSize="3.66412213740458" />
+              <LayoutItem Id="Tep" Index="4" RelativeSize="83.81679389312977" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="DeTaiDuAn_KHCN_DetailView">
+      <Layout>
+        <TabbedGroup Id="Tabs" Index="0" RelativeSize="100">
+          <LayoutGroup Id="Main" RelativeSize="100">
+            <LayoutGroup Id="Detail" Caption="Thôn tin đề tài, dự án" RelativeSize="100">
+              <LayoutGroup Id="Detail_col1" RelativeSize="49.943374858437146">
+                <LayoutItem Id="DeXuatNhiemVu_KHCN" RelativeSize="5.475040257648954" />
+                <LayoutItem Id="TenDeTai" RelativeSize="3.864734299516908" />
+                <LayoutItem Id="LinhVucNghienCuu" RelativeSize="3.864734299516908" />
+                <LayoutItem Id="ThoiGianThucHien" RelativeSize="3.864734299516908" />
+                <LayoutItem Id="TuNgay" RelativeSize="3.864734299516908" />
+                <LayoutItem Id="DenNgay" RelativeSize="3.864734299516908" />
+                <LayoutItem Id="KinhTeDuKien" RelativeSize="3.864734299516908" />
+              </LayoutGroup>
+              <LayoutGroup Id="Detail_col2" RelativeSize="50.056625141562854">
+                <LayoutItem Id="ChuNhiem_CanBoQuanLy" RelativeSize="5.475040257648954" />
+                <LayoutItem Id="TrangThaiDeTai" RelativeSize="3.864734299516908" />
+                <LayoutItem Id="CapQuanLy" RelativeSize="3.864734299516908" />
+                <LayoutItem Id="DonViDeXuat" RelativeSize="3.864734299516908" />
+                <LayoutItem Id="File" RelativeSize="3.864734299516908" />
+                <LayoutItem Id="TienDo" RelativeSize="75.2012882447665" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="FileDuLieus" RelativeSize="100">
+            <LayoutItem Id="FileDuLieus" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="KinhPhiThucHiens" RelativeSize="100">
+            <LayoutItem Id="KinhPhiThucHiens" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="NhaKhoaHocs" RelativeSize="100">
+            <LayoutItem Id="NhaKhoaHocs" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="NoiDung_DeTais" RelativeSize="100">
+            <LayoutItem Id="NoiDung_DeTais" RelativeSize="100" />
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="DeTaiDuAn_KHCN_ListView">
+      <Columns>
+        <ColumnInfo Id="TuNgay" SortIndex="1" SortOrder="Descending" />
+      </Columns>
+    </ListView>
+    <DetailView Id="DeXuatNhiemVu_KHCN_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="Detail" Caption="Chi tiết" RelativeSize="100">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.525101763907735">
+              <LayoutItem Id="TenDeTai" RelativeSize="68.60759493670886" Index="0" />
+              <LayoutItem Id="ChuNhiem_CanBoQuanLy" RelativeSize="3.037974683544304" Index="1" />
+              <LayoutItem Id="LinhVucNghienCuu" RelativeSize="3.037974683544304" Index="2" />
+              <LayoutItem Id="TuNgay" Index="3" RelativeSize="3.037974683544304" ViewItem="TuNgay" IsNewNode="True" />
+              <LayoutItem Id="DenNgay" ViewItem="DenNgay" Index="4" RelativeSize="3.037974683544304" IsNewNode="True" />
+              <LayoutItem Id="ThoiGianThucHien" ViewItem="ThoiGianThucHien" Index="5" RelativeSize="3.037974683544304" IsNewNode="True" />
+              <LayoutItem Id="KinhPhiDuKien" ViewItem="KinhPhiDuKien" Index="6" RelativeSize="3.037974683544304" IsNewNode="True" />
+              <LayoutItem Id="CapQuanLy" ViewItem="CapQuanLy" Index="7" RelativeSize="3.037974683544304" IsNewNode="True" />
+              <LayoutItem Id="DonViDeXuat" ViewItem="DonViDeXuat" Index="8" RelativeSize="3.037974683544304" IsNewNode="True" />
+              <LayoutItem Id="DanhGia" ViewItem="DanhGia" Index="9" RelativeSize="3.037974683544304" IsNewNode="True" />
+              <LayoutItem Id="File" ViewItem="File" Index="10" RelativeSize="4.050632911392405" IsNewNode="True" />
+              <LayoutItem Id="MucTieu" RelativeSize="15.724381625441696" Index="10" Removed="True" />
+              <LayoutItem Id="NoiDungChinh" RelativeSize="25.26501766784452" Index="10" Removed="True" />
+              <LayoutItem Id="TenSanPham" ViewItem="TenSanPham" Index="10" RelativeSize="50.68702290076336" Removed="True" />
+              <LayoutItem Id="KetQuaDuKien" RelativeSize="36.21908127208481" Index="11" Removed="True" />
+              <LayoutItem Id="TinhCapThiet_DT" RelativeSize="18.197879858657245" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.474898236092265" Direction="Vertical" Caption="Detail_col2">
+              <LayoutItem Id="TenSanPham" ViewItem="TenSanPham" Index="0" RelativeSize="11.89873417721519" IsNewNode="True" />
+              <LayoutItem Id="CapQuanLy" RelativeSize="4.240282685512367" Index="1" Removed="True" />
+              <LayoutItem Id="DanhGia" RelativeSize="4.240282685512367" Index="1" Removed="True" />
+              <LayoutItem Id="DenNgay" RelativeSize="4.240282685512367" Index="1" Removed="True" />
+              <LayoutItem Id="DonViDeXuat" RelativeSize="4.240282685512367" Index="1" Removed="True" />
+              <LayoutItem Id="File" ViewItem="File" Index="1" RelativeSize="44.12532637075718" Removed="True" />
+              <LayoutItem Id="KinhPhiDuKien" RelativeSize="4.240282685512367" Index="1" Removed="True" />
+              <LayoutItem Id="ThoiGianThucHien" RelativeSize="4.240282685512367" Index="1" Removed="True" />
+              <LayoutItem Id="TuNgay" ViewItem="TuNgay" Index="1" RelativeSize="3.037974683544304" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="TinhCapThiet_DT" ViewItem="TinhCapThiet_DT" Index="2" RelativeSize="21.0126582278481" IsNewNode="True" />
+              <LayoutItem Id="MucTieu" ViewItem="MucTieu" Index="3" RelativeSize="21.0126582278481" IsNewNode="True" />
+              <LayoutItem Id="NoiDungChinh" ViewItem="NoiDungChinh" Index="4" RelativeSize="21.0126582278481" IsNewNode="True" />
+              <LayoutItem Id="KetQuaDuKien" ViewItem="KetQuaDuKien" Index="5" RelativeSize="22.025316455696203" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="DeXuatNhiemVu_KHCN_ListView">
+      <Columns>
+        <ColumnInfo Id="TuNgay" SortIndex="1" SortOrder="Descending" />
+      </Columns>
+    </ListView>
+    <DetailView Id="FilterDeTaiParameter_DetailView" AllowNew="True" AllowEdit="True" AllowDelete="True" />
+    <ListView Id="HoiDongThamDinh_DeTaiDuAn_KHCNs_ListView" AllowEdit="False" />
+    <DetailView Id="HoiDongThamDinh_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="Detail" Caption="Chi tiết" RelativeSize="23.285714285714285">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.9437570303712">
+              <LayoutItem Id="TenHoiDong" RelativeSize="26.5625" />
+              <LayoutItem Id="NgayThanhLap" RelativeSize="18.75" />
+              <LayoutItem Id="ChuTichHoiDong" RelativeSize="54.6875" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.0562429696288">
+              <LayoutItem Id="NoiDungThanhLap" RelativeSize="50" />
+              <LayoutItem Id="GhiChu" RelativeSize="50" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="76.71428571428571">
+            <LayoutGroup Id="FileDuLieus" RelativeSize="100">
+              <LayoutItem Id="FileDuLieus" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="ThanhVienHoiDongTDs" RelativeSize="100">
+              <LayoutItem Id="ThanhVienHoiDongTDs" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="HoiDongThamDinh_ListView" IsGroupPanelVisible="True" />
+    <ListView Id="HoiDongThamDinh_LookupListView">
+      <Columns>
+        <ColumnInfo Id="ChuTichHoiDong" PropertyName="ChuTichHoiDong" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="NgayThanhLap" PropertyName="NgayThanhLap" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="NoiDungThanhLap" PropertyName="NoiDungThanhLap" Index="3" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="KinhPhiThucHien_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="Detail" Caption="Chi tiết" RelativeSize="100">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.9437570303712">
+              <LayoutItem Id="NoiDungChi" RelativeSize="5.190839694656488" />
+              <LayoutItem Id="TongKinhPhi" RelativeSize="3.66412213740458" />
+              <LayoutItem Id="TuNgay" RelativeSize="3.66412213740458" Index="2" />
+              <LayoutItem Id="DenNgay" ViewItem="DenNgay" Index="3" RelativeSize="87.48091603053435" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.0562429696288">
+              <LayoutItem Id="TrangThaiKinhPhi" RelativeSize="5.190839694656488" Index="0" />
+              <LayoutItem Id="GhiChu" RelativeSize="94.80916030534351" Index="1" />
+              <LayoutItem Id="DenNgay" RelativeSize="5.6537102473498235" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="KinhPhiThucHien_ListView" IsGroupPanelVisible="True">
+      <Columns>
+        <ColumnInfo Id="DeTaiDuAn_KHCN" Index="6" SortOrder="Ascending" GroupIndex="0" />
+      </Columns>
+    </ListView>
+    <DetailView Id="NhaKhoaHoc_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="Detail" Caption="Chi tiết" RelativeSize="100">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.9437570303712">
+              <LayoutItem Id="HoTen" RelativeSize="5.190839694656488" />
+              <LayoutItem Id="SoDienThoai" RelativeSize="3.66412213740458" />
+              <LayoutItem Id="DiaChi" RelativeSize="91.14503816793894" />
+              <LayoutItem Id="NoiCongTac" RelativeSize="85.86572438162544" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.0562429696288">
+              <LayoutItem Id="NoiCongTac" ViewItem="NoiCongTac" Index="0" RelativeSize="5.190839694656488" IsNewNode="True" />
+              <LayoutItem Id="LinhVucChuyenMon" RelativeSize="3.66412213740458" Index="1" />
+              <LayoutItem Id="HocVi" RelativeSize="3.66412213740458" Index="2" />
+              <LayoutItem Id="Tep" RelativeSize="3.66412213740458" Index="3" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="NhaKhoaHoc_ListView" IsGroupPanelVisible="True">
+      <Columns>
+        <ColumnInfo Id="DeTaiDuAn_KHCN" Index="7" SortOrder="Ascending" GroupIndex="0" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Noidung_DeTai_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="Detail" RelativeSize="32.838283828382835" Caption="Chi tiết">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.86187845303867">
+              <LayoutItem Id="NoiDung" ViewItem="NoiDung" Index="0" RelativeSize="37.34939759036145" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="NgayTao" RelativeSize="14.457831325301205" Index="1" />
+              <LayoutItem Id="ThoiGianDuKien" RelativeSize="14.457831325301205" Index="2" />
+              <LayoutItem Id="TienDoThucHien" Index="3" RelativeSize="14.457831325301205" ViewItem="TienDoThucHien" IsNewNode="True" />
+              <LayoutItem Id="TrangThaiNoiDung" ViewItem="TrangThaiNoiDung" Index="4" RelativeSize="19.27710843373494" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.13812154696133" Caption="Detail_col2">
+              <LayoutItem Id="SanPhamDatDuoc" RelativeSize="42.16867469879518" Index="0" />
+              <LayoutItem Id="TrangThaiNoiDung" Index="0" RelativeSize="11.851851851851851" Removed="True" />
+              <LayoutItem Id="File" Index="1" RelativeSize="14.457831325301205" />
+              <LayoutItem Id="GhiChu" Index="2" RelativeSize="43.373493975903614" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="ThaoLuans_Group" Direction="Vertical" RelativeSize="67.16171617161716">
+            <LayoutItem Id="ThaoLuans" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Noidung_DeTai_ListView" IsGroupPanelVisible="True">
+      <Columns>
+        <ColumnInfo Id="DeTaiDuAn_KHCN" Index="6" SortOrder="Ascending" GroupIndex="0" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ThanhVienHoiDongTD_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="Detail" Caption="Chi tiết" RelativeSize="100">
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.9437570303712">
+              <LayoutItem Id="TenThanhVien" RelativeSize="5.190839694656488" />
+              <LayoutItem Id="SoDienThoai" RelativeSize="3.66412213740458" />
+              <LayoutItem Id="Email" RelativeSize="3.66412213740458" />
+              <LayoutItem Id="DiaChi" RelativeSize="3.66412213740458" Index="3" />
+              <LayoutItem Id="HoiDongThamDinh" ViewItem="HoiDongThamDinh" Index="4" RelativeSize="83.81679389312977" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.0562429696288">
+              <LayoutItem Id="TrangThaiGopY" RelativeSize="5.190839694656488" />
+              <LayoutItem Id="GopY" RelativeSize="94.80916030534351" Index="1" />
+              <LayoutItem Id="HoiDongThamDinh" RelativeSize="5.6537102473498235" Index="2" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ThanhVienHoiDongTD_ListView" IsGroupPanelVisible="True">
+      <Columns>
+        <ColumnInfo Id="HoiDongThamDinh" SortOrder="Ascending" GroupIndex="0" />
+      </Columns>
+    </ListView>
+    <ListView Id="ThaoLuan_ListView" IsGroupPanelVisible="True">
+      <Columns>
+        <ColumnInfo Id="Noidung_DeTai" Index="3" SortOrder="Ascending" GroupIndex="0" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>
