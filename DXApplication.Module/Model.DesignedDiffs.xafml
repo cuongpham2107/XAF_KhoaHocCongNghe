@@ -2,7 +2,8 @@
 <Application Title="DXApplication">
   <ActionDesign>
     <Actions>
-      <Action Id="Btn_DinhKemTaiLieu" TargetObjectsCriteria="" />
+      <Action Id="Btn_DinhKemTaiLieu" TargetObjectsCriteria="[DeTaiDuAn_KHCN.TrangThaiDeTai] &lt;&gt; ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,nhiemvudaketthuc#" />
+      <Action Id="Btn_DuyetKinhPhi" TargetObjectsCriteria="[TrangThaiKinhPhi] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiKinhPhi,luutam# And [DeTaiDuAn_KHCN.TrangThaiBool] = False" />
       <Action Id="Btn_FilterDeTai_KHCN" ImageName="Zoom" />
       <Action Id="Btn_NghiemVuKetThuc" TargetObjectsCriteria="[TrangThaiBool] = True And [TrangThaiDeTai] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,duyet#" />
       <Action Id="Btn_TuyenChon" TargetObjectsCriteria="[DanhGia] = ##Enum#DXApplication.Blazor.Common.Enums+DanhGia,dat# And [DeTaiDuAn_KHCN] Is Null" />
@@ -10,6 +11,11 @@
   </ActionDesign>
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+    <Class Name="DXApplication.Module.BusinessObjects.Main.DeTaiDuAn_KHCN">
+      <AppearanceRules>
+        <AppearanceRule Id="TrangThaiDeTai_4" Criteria="[TrangThaiBool] = False" />
+      </AppearanceRules>
+    </Class>
     <Class Name="DXApplication.Module.BusinessObjects.Main.DeXuatNhiemVu_KHCN">
       <OwnMembers>
         <Member Name="KetQuaDuKien" RowCount="10" />
@@ -71,6 +77,11 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="ChuNhiem_CanBoQuanLy_ListView" IsGroupPanelVisible="True">
+      <Columns>
+        <ColumnInfo Id="PhanLoai" SortOrder="Ascending" GroupIndex="0" />
+      </Columns>
+    </ListView>
     <DetailView Id="DeTaiDuAn_KHCN_DetailView">
       <Layout>
         <TabbedGroup Id="Tabs" Index="0" RelativeSize="100">
@@ -119,26 +130,26 @@
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
           <LayoutGroup Id="Detail" Caption="Chi tiết" RelativeSize="100">
-            <LayoutGroup Id="Detail_col1" RelativeSize="49.525101763907735">
-              <LayoutItem Id="TenDeTai" RelativeSize="68.60759493670886" Index="0" />
-              <LayoutItem Id="ChuNhiem_CanBoQuanLy" RelativeSize="3.037974683544304" Index="1" />
-              <LayoutItem Id="LinhVucNghienCuu" RelativeSize="3.037974683544304" Index="2" />
-              <LayoutItem Id="TuNgay" Index="3" RelativeSize="3.037974683544304" ViewItem="TuNgay" IsNewNode="True" />
-              <LayoutItem Id="DenNgay" ViewItem="DenNgay" Index="4" RelativeSize="3.037974683544304" IsNewNode="True" />
-              <LayoutItem Id="ThoiGianThucHien" ViewItem="ThoiGianThucHien" Index="5" RelativeSize="3.037974683544304" IsNewNode="True" />
-              <LayoutItem Id="KinhPhiDuKien" ViewItem="KinhPhiDuKien" Index="6" RelativeSize="3.037974683544304" IsNewNode="True" />
-              <LayoutItem Id="CapQuanLy" ViewItem="CapQuanLy" Index="7" RelativeSize="3.037974683544304" IsNewNode="True" />
-              <LayoutItem Id="DonViDeXuat" ViewItem="DonViDeXuat" Index="8" RelativeSize="3.037974683544304" IsNewNode="True" />
-              <LayoutItem Id="DanhGia" ViewItem="DanhGia" Index="9" RelativeSize="3.037974683544304" IsNewNode="True" />
-              <LayoutItem Id="File" ViewItem="File" Index="10" RelativeSize="4.050632911392405" IsNewNode="True" />
+            <LayoutGroup Id="Detail_col1" RelativeSize="49.43502824858757">
+              <LayoutItem Id="TenDeTai" RelativeSize="67.62402088772846" Index="0" />
+              <LayoutItem Id="ChuNhiem_CanBoQuanLy" RelativeSize="3.133159268929504" Index="1" />
+              <LayoutItem Id="LinhVucNghienCuu" RelativeSize="3.133159268929504" Index="2" />
+              <LayoutItem Id="TuNgay" Index="3" RelativeSize="3.133159268929504" ViewItem="TuNgay" IsNewNode="True" />
+              <LayoutItem Id="DenNgay" ViewItem="DenNgay" Index="4" RelativeSize="3.133159268929504" IsNewNode="True" />
+              <LayoutItem Id="ThoiGianThucHien" ViewItem="ThoiGianThucHien" Index="5" RelativeSize="3.133159268929504" IsNewNode="True" />
+              <LayoutItem Id="KinhPhiDuKien" ViewItem="KinhPhiDuKien" Index="6" RelativeSize="3.133159268929504" IsNewNode="True" />
+              <LayoutItem Id="CapQuanLy" ViewItem="CapQuanLy" Index="7" RelativeSize="3.133159268929504" IsNewNode="True" />
+              <LayoutItem Id="DonViDeXuat" ViewItem="DonViDeXuat" Index="8" RelativeSize="3.133159268929504" IsNewNode="True" />
+              <LayoutItem Id="DanhGia" ViewItem="DanhGia" Index="9" RelativeSize="3.133159268929504" IsNewNode="True" />
+              <LayoutItem Id="File" ViewItem="File" Index="10" RelativeSize="4.177545691906006" IsNewNode="True" />
               <LayoutItem Id="MucTieu" RelativeSize="15.724381625441696" Index="10" Removed="True" />
               <LayoutItem Id="NoiDungChinh" RelativeSize="25.26501766784452" Index="10" Removed="True" />
               <LayoutItem Id="TenSanPham" ViewItem="TenSanPham" Index="10" RelativeSize="50.68702290076336" Removed="True" />
               <LayoutItem Id="KetQuaDuKien" RelativeSize="36.21908127208481" Index="11" Removed="True" />
               <LayoutItem Id="TinhCapThiet_DT" RelativeSize="18.197879858657245" Removed="True" />
             </LayoutGroup>
-            <LayoutGroup Id="Detail_col2" RelativeSize="50.474898236092265" Direction="Vertical" Caption="Detail_col2">
-              <LayoutItem Id="TenSanPham" ViewItem="TenSanPham" Index="0" RelativeSize="11.89873417721519" IsNewNode="True" />
+            <LayoutGroup Id="Detail_col2" RelativeSize="50.56497175141243" Direction="Vertical" Caption="Detail_col2">
+              <LayoutItem Id="TenSanPham" ViewItem="TenSanPham" Index="0" RelativeSize="12.27154046997389" IsNewNode="True" />
               <LayoutItem Id="CapQuanLy" RelativeSize="4.240282685512367" Index="1" Removed="True" />
               <LayoutItem Id="DanhGia" RelativeSize="4.240282685512367" Index="1" Removed="True" />
               <LayoutItem Id="DenNgay" RelativeSize="4.240282685512367" Index="1" Removed="True" />
@@ -146,11 +157,11 @@
               <LayoutItem Id="File" ViewItem="File" Index="1" RelativeSize="44.12532637075718" Removed="True" />
               <LayoutItem Id="KinhPhiDuKien" RelativeSize="4.240282685512367" Index="1" Removed="True" />
               <LayoutItem Id="ThoiGianThucHien" RelativeSize="4.240282685512367" Index="1" Removed="True" />
-              <LayoutItem Id="TuNgay" ViewItem="TuNgay" Index="1" RelativeSize="3.037974683544304" IsNewNode="True" Removed="True" />
-              <LayoutItem Id="TinhCapThiet_DT" ViewItem="TinhCapThiet_DT" Index="2" RelativeSize="21.0126582278481" IsNewNode="True" />
-              <LayoutItem Id="MucTieu" ViewItem="MucTieu" Index="3" RelativeSize="21.0126582278481" IsNewNode="True" />
-              <LayoutItem Id="NoiDungChinh" ViewItem="NoiDungChinh" Index="4" RelativeSize="21.0126582278481" IsNewNode="True" />
-              <LayoutItem Id="KetQuaDuKien" ViewItem="KetQuaDuKien" Index="5" RelativeSize="22.025316455696203" IsNewNode="True" />
+              <LayoutItem Id="TinhCapThiet_DT" ViewItem="TinhCapThiet_DT" Index="1" RelativeSize="21.671018276762403" IsNewNode="True" />
+              <LayoutItem Id="TuNgay" ViewItem="TuNgay" Index="1" RelativeSize="3.037974683544304" Removed="True" />
+              <LayoutItem Id="MucTieu" ViewItem="MucTieu" Index="2" RelativeSize="21.671018276762403" IsNewNode="True" />
+              <LayoutItem Id="NoiDungChinh" ViewItem="NoiDungChinh" Index="3" RelativeSize="21.671018276762403" IsNewNode="True" />
+              <LayoutItem Id="KetQuaDuKien" ViewItem="KetQuaDuKien" Index="4" RelativeSize="22.715404699738905" IsNewNode="True" />
             </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>

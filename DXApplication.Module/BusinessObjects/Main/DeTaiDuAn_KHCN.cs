@@ -26,6 +26,7 @@ namespace DXApplication.Module.BusinessObjects.Main
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     [ListViewFindPanel(true)]
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
+    [CustomRootListView(AllowNew = false)]
     [CustomNestedListView(nameof(KinhPhiThucHiens), FieldsToSum = new[] { "TongKinhPhi:Sum" })]
     [CustomNestedListView(nameof(FileDuLieus), AllowLink = false, AllowUnlink = false)]
     [CustomNestedListView(nameof(KinhPhiThucHiens), AllowLink = false, AllowUnlink = false)]
@@ -40,9 +41,9 @@ namespace DXApplication.Module.BusinessObjects.Main
 
     [Appearance("HideEdit", AppearanceItemType = "ViewItem", TargetItems = "*", Criteria = "[TrangThaiDeTai] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,duyet# Or [TrangThaiDeTai] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,nhiemvudaketthuc# ", Context = "Any", Enabled = false, Priority = 1)]
     [Appearance("TrangThaiDeTai_1", BackColor = "DeepSkyBlue", FontColor = "Black", Criteria = "[TrangThaiDeTai] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,duyet#", TargetItems = "TrangThaiDeTai", Context = "Any", Priority = 0)]
-    //[Appearance("TrangThaiDeTai_2", BackColor = "Gold", FontColor = "Black", Criteria = "[TrangThaiDeTai] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,chonghiemthu#", TargetItems = "TrangThaiDeTai", Context = "Any", Priority = 0)]
     [Appearance("TrangThaiDeTai_3", BackColor = "OliveDrab", FontColor = "Black", Criteria = "[TrangThaiDeTai] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,nhiemvudaketthuc#", TargetItems = "TrangThaiDeTai", Context = "Any", Priority = 0)]
-
+    [Appearance("TrangThaiDeTai_4", FontColor = "Red", FontStyle = System.Drawing.FontStyle.Bold, Criteria = "[TrangThaiBool] = False", TargetItems = "TienDo", Context = "Any", Priority = 0)]
+    [Appearance("TrangThaiDeTai_5", FontColor = "DeepSkyBlue", FontStyle = System.Drawing.FontStyle.Bold, Criteria = "[TrangThaiBool] = True", TargetItems = "TienDo", Context = "Any", Priority = 0)]
 
     public class DeTaiDuAn_KHCN : BaseObject
     {

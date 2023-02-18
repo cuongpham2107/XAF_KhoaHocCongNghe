@@ -24,6 +24,7 @@ namespace DXApplication.Module.BusinessObjects.Main
     [ListViewFindPanel(true)]
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
     [NavigationItem(Menu.MenuCatalog)]
+    [CustomRootListView(AllowNew = false)]
     public class FileDuLieu : BaseObject
     {
         public FileDuLieu(Session session)

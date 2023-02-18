@@ -13,6 +13,7 @@ using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using DXApplication.Blazor.BusinessObjects;
 using DXApplication.Module.BusinessObjects.Main;
+using DXApplication.Module.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -108,7 +109,7 @@ namespace DXApplication.Module.Controllers
     }
     [DomainComponent]
     [XafDisplayName("Đánh giá đề xuất, nhiệm vụ")]
-    public class DanhGiaParameter
+    public class DanhGiaParameter : IDomainComponent
     {
         [XafDisplayName("Trạng thái đề xuất")]
         public DanhGia DanhGia { get; set; }

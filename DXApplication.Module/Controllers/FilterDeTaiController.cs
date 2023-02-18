@@ -12,6 +12,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DXApplication.Module.BusinessObjects.Main;
+using DXApplication.Module.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,7 +80,8 @@ namespace DXApplication.Module.Controllers
 
     [DomainComponent]
     [XafDisplayName("Nhập năm muốn lọc")]
-    public class FilterDeTaiParameter
+
+    public class FilterDeTaiParameter : IDomainComponent
     {
         [XafDisplayName("Năm")]
         public int? Nam { get; set; }

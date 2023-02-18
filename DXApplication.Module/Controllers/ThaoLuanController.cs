@@ -15,6 +15,7 @@ using DevExpress.Xpo;
 using DevExpress.Xpo.Metadata;
 using DXApplication.Blazor.BusinessObjects;
 using DXApplication.Module.BusinessObjects.Main;
+using DXApplication.Module.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -94,7 +95,7 @@ namespace DXApplication.Module.Controllers
     }
     [DomainComponent]
     [XafDisplayName("Thảo luận")]
-    public class ThaoLuanParameter : NonPersistentObjectImpl
+    public class ThaoLuanParameter : NonPersistentObjectImpl, IDomainComponent
     {
         [XafDisplayName("Nội dung cần thảo luận")]
         [RuleRequiredField($"Bắt buộc phải có {nameof(ThaoLuanParameter.ThaoLuan)}", DefaultContexts.Save, "Trường dữ liệu không được để trống")]

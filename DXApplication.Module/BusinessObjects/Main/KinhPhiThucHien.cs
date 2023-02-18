@@ -27,7 +27,7 @@ namespace DXApplication.Module.BusinessObjects.Main
     [ListViewFindPanel(true)]
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
     [NavigationItem(Menu.MenuCatalog)]
-
+    [CustomRootListView(AllowNew = false)]
     [CustomRootListView(FieldsToSum = new[] { "TongKinhPhi:Sum", })]
 
     [Appearance("HideEdit", AppearanceItemType = "ViewItem", TargetItems = "*", Criteria = "[TrangThaiKinhPhi] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiKinhPhi,daduyet#", Context = "Any", Enabled = false, Priority = 0)]

@@ -24,7 +24,7 @@ namespace DXApplication.Module.BusinessObjects.Main
     [ListViewFindPanel(true)]
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
     [NavigationItem(Menu.MenuCatalog)]
-
+    [CustomRootListView(AllowNew = false)]
 
     public class NhaKhoaHoc : BaseObject
     {

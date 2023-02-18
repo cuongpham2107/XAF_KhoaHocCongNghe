@@ -43,8 +43,6 @@ namespace DXApplication.Module.BusinessObjects.Main
 
         }
 
-        //DeTaiDuAn_KHCN deTaiDuAn_KHCN;
-        DeTaiDuAn_KHCN deTaiDuAn_KHCN;
         string ghiChu;
         string noiDungThanhLap;
         string chuTichHoiDong;
@@ -86,15 +84,7 @@ namespace DXApplication.Module.BusinessObjects.Main
             set => SetPropertyValue(nameof(GhiChu), ref ghiChu, value);
         }
 
-        [XafDisplayName("Đề tài & dự án")]
-        [Association("DeTaiDuAn_KHCN-HoiDongThamDinh")]
-        public XPCollection<DeTaiDuAn_KHCN> DeTaiDuAn_KHCNs
-        {
-            get
-            {
-                return GetCollection<DeTaiDuAn_KHCN>(nameof(DeTaiDuAn_KHCNs));
-            }
-        }
+
         [XafDisplayName("Danh sách File đính kèm")]
         [Association("HoiDongThamDinh-FileDuLieus")]
         public XPCollection<FileDuLieu> FileDuLieus
@@ -111,6 +101,15 @@ namespace DXApplication.Module.BusinessObjects.Main
             get
             {
                 return GetCollection<ThanhVienHoiDongTD>(nameof(ThanhVienHoiDongTDs));
+            }
+        }
+        [XafDisplayName("Đề tài & dự án")]
+        [Association("DeTaiDuAn_KHCN-HoiDongThamDinh")]
+        public XPCollection<DeTaiDuAn_KHCN> DeTaiDuAn_KHCNs
+        {
+            get
+            {
+                return GetCollection<DeTaiDuAn_KHCN>(nameof(DeTaiDuAn_KHCNs));
             }
         }
     }

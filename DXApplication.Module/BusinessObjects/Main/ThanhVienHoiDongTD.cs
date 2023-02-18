@@ -27,7 +27,7 @@ namespace DXApplication.Module.BusinessObjects.Main
     [ListViewFindPanel(true)]
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
     [NavigationItem(Menu.MenuCatalog)]
-
+    [CustomRootListView(AllowNew = false)]
 
 
     [Appearance("TrangThaiGopY_1", BackColor = "Red", FontColor = "Black", Criteria = "[TrangThaiGopY] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiGopY,chuasua#", TargetItems = "TrangThaiGopY", Context = "Any", Priority = 3)]
@@ -84,6 +84,7 @@ namespace DXApplication.Module.BusinessObjects.Main
             get => gopY;
             set => SetPropertyValue(nameof(GopY), ref gopY, value);
         }
+        [ModelDefault("AllowEdit", "False")]
         [XafDisplayName("Trạng thái góp ý")]
         public TrangThaiGopY TrangThaiGopY
         {

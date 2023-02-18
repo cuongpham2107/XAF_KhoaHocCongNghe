@@ -16,6 +16,7 @@ using DevExpress.Xpo;
 using DomainComponents.Common;
 using DXApplication.Blazor.BusinessObjects;
 using DXApplication.Module.BusinessObjects.Main;
+using DXApplication.Module.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,7 @@ namespace DXApplication.Module.Controllers
                 TargetViewNesting = Nesting.Nested,
                 TargetViewType = ViewType.ListView,
                 TargetObjectType = typeof(FileDuLieu),
+                TargetObjectsCriteria = "[DeTaiDuAn_KHCN.TrangThaiDeTai] <> ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,nhiemvudaketthuc#",
                 SelectionDependencyType = SelectionDependencyType.Independent,
             };
             action.CustomizePopupWindowParams += Btn_CustomizePopupWindowParams;
@@ -96,10 +98,19 @@ namespace DXApplication.Module.Controllers
             };
             action.Execute += (s, e) =>
             {
-                DeTaiDuAn_KHCN detai = (DeTaiDuAn_KHCN)View.CurrentObject;
-                detai.TrangThaiDeTai = Blazor.Common.Enums.TrangThaiDeTai.duyet;
-                this.ObjectSpace.CommitChanges();
-                Application.ShowViewStrategy.ShowMessage("Phê duyệt đề tài này thành công!", InformationType.Success);
+                try
+                {
+                    DeTaiDuAn_KHCN detai = (DeTaiDuAn_KHCN)View.CurrentObject;
+                    detai.TrangThaiDeTai = Blazor.Common.Enums.TrangThaiDeTai.duyet;
+                    this.ObjectSpace.CommitChanges();
+                    Application.ShowViewStrategy.ShowMessage("Phê duyệt đề tài này thành công!", InformationType.Success);
+                }
+                catch (Exception)
+                {
+                    Application.ShowViewStrategy.ShowMessage("Phê duyệt đề tài này thất bại!", InformationType.Error);
+                    throw;
+                }
+
             };
         }
         public void Btn_HuyPheDuyet()
@@ -147,7 +158,7 @@ namespace DXApplication.Module.Controllers
     }
     [DomainComponent]
     [XafDisplayName("Tài liệu phục vụ nghiệm thu")]
-    public class TaiLieuParameter : NonPersistentObjectImpl
+    public class TaiLieuParameter : NonPersistentObjectImpl, IDomainComponent
     {
         [XafDisplayName("Tên file")]
         public string TenFile { get; set; }

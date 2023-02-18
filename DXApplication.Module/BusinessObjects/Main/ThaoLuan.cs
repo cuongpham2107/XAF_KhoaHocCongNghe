@@ -24,7 +24,7 @@ namespace DXApplication.Module.BusinessObjects.Main
     [ListViewFindPanel(true)]
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
     [NavigationItem(Menu.MenuCatalog)]
-
+    [CustomRootListView(AllowNew = false)]
     public class ThaoLuan : BaseObject
     {
         public ThaoLuan(Session session)
@@ -72,6 +72,7 @@ namespace DXApplication.Module.BusinessObjects.Main
         }
         [VisibleInListView(false)]
         [VisibleInDetailView(false)]
+        [XafDisplayName("Nội dung & Tiến độ")]
         [Association("Noidung_DeTai-ThaoLuans")]
         public Noidung_DeTai Noidung_DeTai
         {

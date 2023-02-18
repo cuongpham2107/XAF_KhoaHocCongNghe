@@ -27,6 +27,7 @@ namespace DXApplication.Module.BusinessObjects.Main
     [ListViewFindPanel(true)]
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
     [NavigationItem(Menu.MenuCatalog)]
+    [CustomRootListView(AllowNew = false)]
 
     [CustomNestedListView(nameof(ThaoLuans), AllowLink = false, AllowUnlink = false)]
 

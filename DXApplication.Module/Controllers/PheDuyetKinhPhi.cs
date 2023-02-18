@@ -36,7 +36,7 @@ namespace DXApplication.Module.Controllers
                 TargetViewNesting = Nesting.Nested,
                 TargetViewType = ViewType.ListView,
                 TargetObjectType = typeof(KinhPhiThucHien),
-                TargetObjectsCriteria = "[TrangThaiKinhPhi] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiKinhPhi,luutam#",
+                TargetObjectsCriteria = "[TrangThaiKinhPhi] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiKinhPhi,luutam# And [DeTaiDuAn_KHCN.TrangThaiDeTai] <> ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,nhiemvudaketthuc#",
                 ConfirmationMessage = "Xác nhận duyệt danh sách kinh phí thực hiện này!",
                 SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects,
             };
@@ -59,7 +59,7 @@ namespace DXApplication.Module.Controllers
                 TargetViewNesting = Nesting.Nested,
                 TargetViewType = ViewType.ListView,
                 TargetObjectType = typeof(KinhPhiThucHien),
-                TargetObjectsCriteria = "[TrangThaiKinhPhi] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiKinhPhi,daduyet#",
+                TargetObjectsCriteria = "[TrangThaiKinhPhi] = ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiKinhPhi,daduyet# And [DeTaiDuAn_KHCN.TrangThaiDeTai] <> ##Enum#DXApplication.Blazor.Common.Enums+TrangThaiDeTai,nhiemvudaketthuc#",
                 ConfirmationMessage = "Xác nhận huỷ duyệt danh sách kinh phí thực hiện này!",
                 SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects,
             };
